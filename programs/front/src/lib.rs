@@ -158,9 +158,9 @@ pub struct FeedPet<'info> {
     #[account(mut)]
     pub item: Account<'info, Item>,
     #[account(mut)]
-    pub item_mint: Account<'info, token::Mint>,
+    pub item_mint: Box<Account<'info, token::Mint>>,
     #[account(mut)]
-    pub item_token_account: Account<'info, TokenAccount>,
+    pub item_token_account: Box<Account<'info, TokenAccount>>,
     pub token_program: Program<'info, Token>,
 }
 
@@ -182,6 +182,7 @@ pub struct EarnCoins<'info> {
     pub pet_coin_mint: Account<'info, token::Mint>,
     #[account(mut)]
     pub owner_token_account: Account<'info, TokenAccount>,
+    /// CHECK: This account is used just as a signer for minting
     pub pet_coin_mint_authority: AccountInfo<'info>,
     pub token_program: Program<'info, Token>,
 }
