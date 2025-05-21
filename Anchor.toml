@@ -5,15 +5,18 @@ package_manager = "yarn"
 resolution = true
 skip-lint = false
 
-[programs.localnet]
+[programs.devnet]
 front = "41ERbSHwC8su7e59kyiQc39XYkCHRMQmjHQuPBsaq4J8"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[metadata]
+address = "41ERbSHwC8su7e59kyiQc39XYkCHRMQmjHQuPBsaq4J8"
